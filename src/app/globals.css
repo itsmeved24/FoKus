@@ -1,0 +1,230 @@
+@import '../styles/stars.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+.timer-display {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 15vw, 10rem);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  margin: clamp(0.5rem, 3vh, 2rem) 0;
+}
+
+.timer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.25rem, 1.5vw, 1rem);
+  justify-content: center;
+  margin-bottom: clamp(0.5rem, 3vh, 2rem);
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  max-width: min(100%, 600px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timer-button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2rem;
+  color: white;
+  cursor: pointer;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  padding: clamp(0.4rem, 1.5vh, 0.75rem) clamp(0.8rem, 2.5vw, 1.5rem);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 2.25rem;
+  justify-content: center;
+  touch-action: manipulation;
+  flex: 1;
+  min-width: min(150px, 30%);
+}
+
+.timer-button:active {
+  transform: scale(0.95);
+}
+
+.timer-button.active {
+  background-color: white;
+  color: #1b0a3b;
+}
+
+.control-buttons {
+  display: flex;
+  gap: clamp(0.25rem, 1.5vw, 1rem);
+  justify-content: center;
+  align-items: center;
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+  margin: clamp(0.5rem, 2vh, 1rem) 0;
+}
+
+.pomo-counter {
+  font-size: clamp(0.65rem, 2vw, 0.75rem);
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  text-align: center;
+  line-height: 1;
+  margin-top: 0.125rem;
+}
+
+/* Fullscreen button styling */
+.fullscreen-btn {
+  position: fixed;
+  bottom: clamp(1rem, 4vh, 2rem);
+  right: clamp(1rem, 4vw, 2rem);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  border-radius: 1.5rem;
+  padding: clamp(0.4rem, 1.5vh, 0.5rem) clamp(0.8rem, 2vw, 1rem);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  backdrop-filter: blur(8px);
+}
+
+.fullscreen-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 480px) {
+  .fullscreen-btn span {
+    display: none;
+  }
+  
+  .fullscreen-btn {
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+}
+
+/* Settings modal styling */
+.settings-modal {
+  max-width: min(500px, 95vw);
+  width: 100%;
+  background-color: #2a1a4a;
+  color: white;
+  border-radius: clamp(0.5rem, 2vw, 1rem);
+  margin: clamp(0.5rem, 2vw, 1rem);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+@media (max-width: 480px) {
+  .settings-modal {
+    margin: 0.25rem;
+    padding: 1rem;
+  }
+}
+
+/* Import fonts */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://ext.same-assets.com/1868819391/2730388244.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://ext.same-assets.com/1868819391/1047393784.woff2') format('woff2');
+}
+
+/* Footer */
+.footer-container {
+  padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 3vw, 1.5rem);
+}
+
+.social-icons {
+  display: flex;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon {
+  transform: scale(clamp(0.8, 1vw, 1));
+  transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: scale(clamp(0.9, 1.1vw, 1.1));
+}
+
+@media (max-height: 600px) {
+  .timer-display {
+    font-size: clamp(2rem, 10vh, 6rem);
+    margin: 0.5rem 0;
+  }
+
+  .timer-buttons {
+    margin-bottom: 0.5rem;
+  }
+}
