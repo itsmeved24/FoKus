@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: "FoKus",
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body>
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
